@@ -1,3 +1,12 @@
-/**
- * Created by Georgi on 1/8/2015.
- */
+app.directive('towns',function (){
+
+    return {
+
+        controller:'TownsCtrl',
+        restrict: 'E',
+        templateUrl: 'templates/public/towns.html',
+        replace: true
+
+    };
+
+});

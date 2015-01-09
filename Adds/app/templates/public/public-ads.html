@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div id="public-ads">
+    <img src="images/loading.gif" ng-hide="ready" width="300px" height="300px">
+    <ul ng-cloak>
+        <li ng-repeat="ad in adsData.ads">
+            {{ad.title}}
+        </li>
+    </ul>
 
-</body>
-</html>
+</div>
