@@ -1,0 +1,55 @@
+<header>
+    <h1>Ads - {{pageTitle}}</h1>
+</header>
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-3">
+           <logged-in-sidebar></logged-in-sidebar>
+        </div>
+        <div class="col-md-6">
+            <div class="container">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend>Publish New Ad</legend>
+                        <div class="form-group">
+                            <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="ad.title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputText" class="col-lg-2 control-label">Text</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputText" placeholder="Text" ng-model="ad.text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputImage" class="col-lg-2 control-label">Image</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputImage" placeholder="Image" ng-model="ad.Image">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="inputCategory" class="col-lg-2 control-label">Category</label>
+                            <select id="inputCategory" ng-options="category.id as category.name for category in categories" ng-model="ad.categoryId"></select>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="inputTown" class="col-lg-2 control-label">Town</label>
+                            <select id="inputTown" ng-options="town.id as town.name for town in towns" ng-model="ad.townId"></select>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button class="btn btn-default">Cancel</button>
+                                <button type="submit" class="btn btn-primary" ng-click="publishAd(ad)">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,8 +6,8 @@ app.controller('RegisterCtrl',['$scope','townsData', 'userData', function($scope
        .$promise
        .then(function (data) {
            $scope.towns = data;
-           console.log(data);
          });
+
     $scope.register = function (user) {
 
         userData.register(user);

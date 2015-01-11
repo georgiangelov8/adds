@@ -1,12 +1,14 @@
 /**
  * Created by Georgi on 1/9/2015.
  */
-app.factory('adsData',['$resource','baseServiceUrl',function ($resource,baseServiceUrl) {
-    var resource= $resource(baseServiceUrl+'ads:adId',{adId: '@id'}, {
-        update: {method : 'PUT'}
+app.factory('adsData',['$resource','baseServiceUrl','authentication',function ($resource,baseServiceUrl,authentication) {
+    var resource= $resource(baseServiceUrl+'user/ads:adId',{adId: '@id'}, {
+        update: {method : 'PUT'},
+        add: {method: 'POST',headers: authentication.getHeaders()}
     });
-    function getPublicAds(){
-        return resource.get();
+    function getPublicAds(params){
+        var resourceAdd= $resource(baseServiceUrl+'ads')
+        return resourceAdd.get(params);
     }
     function editAd(adId,ad){
         return resource.update({id:adId},ad);
@@ -15,7 +17,8 @@ app.factory('adsData',['$resource','baseServiceUrl',function ($resource,baseServ
         return resource.get({id:adId});
     }
     function addAd(ad){
-        return resource.save(ad);
+
+        return resource.add(ad);
     }
     function deleteAd(adId){
         return resource.delete({id:adId});
